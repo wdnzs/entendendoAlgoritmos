@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  backend-java:
+    image: eclipse-temurin:17-jdk
+    container_name: entendendoAlgoritmos
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    # suspend=y faz o contêiner ESPERAR o Eclipse conectar antes de rodar
+    command: java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=*:5005 -cp bin capitulo1.PesquisaBinariaNomes
