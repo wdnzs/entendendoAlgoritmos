@@ -5,8 +5,23 @@ public class PesquisaBinariaNumeros {
 
     int[] minhaLista = {1, 3, 5, 7, 9};
 
-    System.out.println("Posição do valor desejado: " + pesquisaBinaria(minhaLista, 3));
-    System.out.println("Retorno ao enviar parâmetro inválido: " + pesquisaBinaria(minhaLista, -1));
+    long inicio1 = System.nanoTime();
+    Integer pos1 = pesquisaBinaria(minhaLista, 3);
+    long fim1 = System.nanoTime();
+    double tempo1Ms = (fim1 - inicio1) / 1_000_000.0;
+
+    System.out.printf("Posição do valor desejado: %s (Tempo: %.4f ms)%n", pos1, tempo1Ms);
+
+    long inicio2 = System.nanoTime();
+    Integer pos2 = pesquisaBinaria(minhaLista, -1);
+    long fim2 = System.nanoTime();
+    double tempo2Ms = (fim2 - inicio2) / 1_000_000.0;
+
+    System.out.printf("Retorno ao enviar parâmetro inválido: %s (Tempo: %.4f ms)%n", pos2,
+        tempo2Ms);
+
+    System.out.println("Sistema Operacional: " + System.getProperty("os.name"));
+    System.out.println("Caminho do Java: " + System.getProperty("java.home"));
   }
 
   private static Integer pesquisaBinaria(int[] lista, Integer item) {

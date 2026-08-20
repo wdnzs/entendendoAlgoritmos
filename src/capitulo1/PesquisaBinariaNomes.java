@@ -6,15 +6,24 @@ public class PesquisaBinariaNomes {
     String[] minhaLista = {"Alice", "Bob", "Charlie", "David", "Eve"};
 
     String primeiroNome = "Charlie";
+    long inicio1 = System.nanoTime();
     Integer posicaoPrimeiroNomePesquisado = pesquisaBinaria(minhaLista, primeiroNome);
-    System.out.println("Posição de " + primeiroNome + ": "
-        + (posicaoPrimeiroNomePesquisado != null ? posicaoPrimeiroNomePesquisado
-            : "Não encontrado"));
+    long fim1 = System.nanoTime();
+    double tempo1Ms = (fim1 - inicio1) / 1_000_000.0;
+
+    System.out.printf("Posição de %s: %s (Tempo: %.4f ms)%n", primeiroNome,
+        (posicaoPrimeiroNomePesquisado != null ? posicaoPrimeiroNomePesquisado : "Não encontrado"),
+        tempo1Ms);
 
     String segundoNome = "Frank";
+    long inicio2 = System.nanoTime();
     Integer posicaoSegundoNomePesquisado = pesquisaBinaria(minhaLista, segundoNome);
-    System.out.println("Posição de " + segundoNome + ": "
-        + (posicaoSegundoNomePesquisado != null ? posicaoSegundoNomePesquisado : "Não encontrado"));
+    long fim2 = System.nanoTime();
+    double tempo2Ms = (fim2 - inicio2) / 1_000_000.0;
+
+    System.out.printf("Posição de %s: %s (Tempo: %.4f ms)%n", segundoNome,
+        (posicaoSegundoNomePesquisado != null ? posicaoSegundoNomePesquisado : "Não encontrado"),
+        tempo2Ms);
 
   }
 
